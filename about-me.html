@@ -1,0 +1,361 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Diana's About Me</title>	    
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+<script>
+function initComparisons() {
+  var x, i;
+  /*find all elements with an "overlay" class:*/
+  x = document.getElementsByClassName("img-comp-overlay");
+  for (i = 0; i < x.length; i++) {
+    /*once for each "overlay" element:
+    pass the "overlay" element as a parameter when executing the compareImages function:*/
+    compareImages(x[i]);
+  }
+  function compareImages(img) {
+    var slider, img, clicked = 0, w, h;
+    /*get the width and height of the img element*/
+    w = img.offsetWidth;
+    h = img.offsetHeight;
+    /*set the width of the img element to 50%:*/
+    img.style.width = (w / 2) + "px";
+    /*create slider:*/
+    slider = document.createElement("DIV");
+    slider.setAttribute("class", "img-comp-slider");
+    /*insert slider*/
+    img.parentElement.insertBefore(slider, img);
+    /*position the slider in the middle:*/
+    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+    /*execute a function when the mouse button is pressed:*/
+    slider.addEventListener("mousedown", slideReady);
+    /*and another function when the mouse button is released:*/
+    window.addEventListener("mouseup", slideFinish);
+    /*or touched (for touch screens:*/
+    slider.addEventListener("touchstart", slideReady);
+    /*and released (for touch screens:*/
+    window.addEventListener("touchend", slideFinish);
+    function slideReady(e) {
+      /*prevent any other actions that may occur when moving over the image:*/
+      e.preventDefault();
+      /*the slider is now clicked and ready to move:*/
+      clicked = 1;
+      /*execute a function when the slider is moved:*/
+      window.addEventListener("mousemove", slideMove);
+      window.addEventListener("touchmove", slideMove);
+    }
+    function slideFinish() {
+      /*the slider is no longer clicked:*/
+      clicked = 0;
+    }
+    function slideMove(e) {
+      var pos;
+      /*if the slider is no longer clicked, exit this function:*/
+      if (clicked == 0) return false;
+      /*get the cursor's x position:*/
+      pos = getCursorPos(e)
+      /*prevent the slider from being positioned outside the image:*/
+      if (pos < 0) pos = 0;
+      if (pos > w) pos = w;
+      /*execute a function that will resize the overlay image according to the cursor:*/
+      slide(pos);
+    }
+    function getCursorPos(e) {
+      var a, x = 0;
+      e = (e.changedTouches) ? e.changedTouches[0] : e;
+      /*get the x positions of the image:*/
+      a = img.getBoundingClientRect();
+      /*calculate the cursor's x coordinate, relative to the image:*/
+      x = e.pageX - a.left;
+      /*consider any page scrolling:*/
+      x = x - window.pageXOffset;
+      return x;
+    }
+    function slide(x) {
+      /*resize the image:*/
+      img.style.width = x + "px";
+      /*position the slider:*/
+      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+    }
+  }
+}
+</script>
+</head>
+
+
+<body bgcolor="#C8D1CC"> 
+      <table border="0" align="center" bgcolor="#7E8A6D" width="1200" height="100">		
+	    <tr>	  
+	        <td width="40" rowspan="4"<p>&nbsp;</p></td>	
+        </tr> 	   
+	   
+
+ <header class="navbar">
+          <div class="logo">
+
+	                <a href="index2.html"> 
+            <img src="logo.png" alt="logo" height="70" width="100" class="small-image">
+        </a>
+    </div>
+    <nav 
+	
+      <ul class="nav-links">
+		<li><p><a href="index2.html">Home</a></p></li>
+        <li><p><a href="about-me.html"class="nav-link active">About Me</a></p></li>
+        <li><p><a href="hobby.html">Hobby</a></p></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="contact-button">Contact Me</a>
+  </header>
+
+	<tr height="100">
+	   <td colspan="6">
+	   
+	   <nav class="nav-container" 
+	   style="list-style: none; display: flex; justify-content: center; margin: 0; padding: 0;">
+ 
+    <div class="nav-links">
+      <a href="#history" class="nav-link">
+        <span class="nav-indicator">•</span>
+        History  |
+      </a>
+      <a href="#Education" class="nav-link">
+        <span class="nav-indicator">•</span>
+        Education  |
+      </a>
+      <a href="#Family" class="nav-link">
+        <span class="nav-indicator">•</span>
+        Family  |
+      </a>
+    </div>
+
+</nav>
+<div class="hero-container">
+		   <div class="hero-content">
+		     <div class="Hello-badge">History</div>
+			
+			 
+		  <h1>
+		  Hii, I am <span class="highlight">Nordiana Nadia Binti Mohamad Sabri</span>,<br>
+		  Information Management, student at UiTM.
+		  </br></h1>
+		  
+		  <p class="Description">
+		   <ul>
+	  
+	     <li style ="list-style-image:url(bullet-small.png); List-style-position:inside">I'm a student at UiTM Campus Rembau, passionate about Information Management</li>
+		 </ul>
+  
+  
+                  <div class="button-group">
+					<p><a href="#Education" class="secondary-btn">Next!</a></p>
+		          </div>
+			
+            </div>
+
+            <div class="hero-image-container">
+                <div class="badge badge-designer">Student</div>
+                <div class="badge badge-uiux">UiTM Rembau<a href="https://www.google.com/maps/dir//Universiti+Teknologi+MARA,+UiTM+Cawangan+Negeri+Sembilan+Kampus,+Jalan,+Kampung+Pilin,+71300+Rembau,+Negeri+Sembilan/@2.510904,101.9805481,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31cdfd8ea33825ad:0x5aa3255f8a169f1c!2m2!1d102.0629501!2d2.5109066?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" class="location-link"><img src="pin2.png" alt="location" width="20"></a></div>
+
+			  <div class="hero-image">
+                   <img src="image1.jpg" alt="profile" height="70" width="100" class="image">
+               </div>
+            </div>
+</div>
+
+
+	
+  			<td width="40" rowspan="3"<p>&nbsp;</p></td>
+	</td>
+    </tr>
+	   
+	   
+	<tr>
+			 
+		<td colspan="8" height="45" align="right"</td>
+    </tr>
+			
+</table>
+
+
+
+
+ <tr>
+            <td colspan="6" align="center"<p>&nbsp;</p></td>
+        </tr>
+		
+		
+		
+		
+		
+		
+ <table border="0" align="center" bgcolor="#7E8A6D" width="1200" height="100">		
+ 
+      
+		 
+		   
+       <tr>	  
+	        <td width="40" rowspan="4"><p>&nbsp;</p></td>	
+        </tr> 	   
+	   
+			   </td>
+                </tr>
+				
+	<tr height="500">
+	   <td colspan="6">
+	     <div class="hero-container">
+		   <div class="hero-content">
+		   <div class="Hello-badge">Education</div>
+	<section class="about" id="about"
+        <div class="container">	
+		
+		<p class="Description">
+		<ol>
+		      <li value= "1"> Currently studies at UiTM as final year student</li>
+			  <li value="2"> Officially graduated at SMK Bukit Indah, Ampang</li>
+			  <li value="3">SK Taman Kosas</li>
+	    </ol>
+		</p>
+	
+	</section>
+                  <div class="button-group">
+				    <p id="Education"></p>
+					
+					    <p><a href="#Top" class="secondary-btn">Go Back</a></p>
+					
+					
+					
+				        <p><a href="#Family" class="secondary-btn">Next!</a></p>
+			        
+	
+			
+						
+			
+                </div>
+            </div>
+<div class="img-comp-container" class="center">
+  <div class="img-comp-img">
+    <img src="hs1.jpg" width="300" height="400" alt="Before">
+  </div>
+  <div class="img-comp-img img-comp-overlay">
+    <img src="diana2.jpg" width="300" height="400" alt="After">
+  </div>
+</div>
+
+                </div>
+            </div>
+	
+	
+  			<td width="40" rowspan="3"<p>&nbsp;</p></td>
+	</td>
+    </tr>
+	   
+	   
+	<tr>
+			 
+		<td colspan="8" height="45" align="right"</td>
+    </tr>
+</table>
+ <tr>
+            <td colspan="6" align="center"<p>&nbsp;</p></td>
+        </tr>
+<script>
+/*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+initComparisons();
+</script>
+	
+
+
+
+
+
+		
+
+
+<table border="0" align="center" bgcolor="#7E8A6D" width="1200" height="100">		
+      
+		 
+		   
+       <tr>	  
+	        <td width="40" rowspan="4"<p>&nbsp;</p></td>
+        </tr> 	   
+	   
+			   </td>
+                </tr>
+				
+	<tr height="500">
+	   <td colspan="6">
+	     <div class="hero-container">
+		   <div class="hero-content">
+		    <div class="Hello-badge">Family</div>
+			
+          <h1>
+		  I am <span class="highlight">I am the third child of 4 siblings</span>,<br>
+		  </br></h1>
+		  <body>
+
+
+
+<img src="20.jpg" alt="family" style="width:500px">
+<img src="21.jpg" alt="family" style="width:500px">
+
+
+</body>
+	
+
+                  <div class="button-group">
+				    <p id="Family"></p>
+					
+					    <p><a href="#Top" class="secondary-btn">Go Back</a></p>
+						 <p><a href="#Best memory" class="secondary-btn">Next!</a></p>
+					
+	
+			
+						
+			
+                </div>
+            </div>
+
+                </div>
+            </div>
+	
+	
+  			<td width="40" rowspan="3"<p>&nbsp;</p></td>
+	</td>
+    </tr>
+	   
+	   
+	<tr>
+			 
+		<td colspan="8" height="45" align="right"</td>
+    </tr>
+</table>
+ <tr>
+            <td colspan="6" align="center"<p>&nbsp;</p></td>
+        </tr>
+		
+		
+		
+	
+	
+  			<td width="40" rowspan="3"<p>&nbsp;</p></td>
+	</td>
+    </tr>
+	   
+	   
+	<tr>
+			 
+		<td colspan="8" height="45" align="right"</td>
+    </tr>
+</table>
+<script>
+/*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+initComparisons();
+</script>
+
+</body>
+</html>

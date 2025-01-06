@@ -1,0 +1,124 @@
+<html>
+<head>
+       <title>Welcome</title>	   
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="stylesheet" href="style.css" type="text/css">
+<style>
+        
+        .center-marquee {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+</style>
+</head>
+<body bgcolor="#C8D1CC"> 
+      <table border="0" align="center" bgcolor="#7E8A6D" width="1200" height="100">	
+       <title>Marquee Center</title>
+
+       <tr>	  
+	        <td width="40" rowspan="4"><p>&nbsp;</p></td>	
+        </tr>
+	
+	   <header class="navbar">
+    <div class="logo">
+        <a href="index2.html"> 
+            <img src="logo.png" alt="logo" height="70" width="100" class="small-image">
+        </a>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index2.html">Home</a></li>
+            <li><a href="about-me.html">About Me</a></li>
+            <li><a href="hobby.html">Hobby</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+    <a href="contact.html" class="contact-button">Contact Me</a>
+</header>
+
+	<tr height="100">
+	   <td colspan="6"><p>&nbsp;</p>
+	     <div class="hero-container">
+		   <div class="hero-content">
+		     <div class="Hello-badge">Hello There!</div>
+			   <!-- Deprecated <marquee> tag usage -->
+    <div class="center-marquee">
+        <marquee width="500" loop="2" align="center">
+            &#10021;&#10086;&hearts; Welcome to my world &#10086;&#10021;&hearts;
+        </marquee>
+    </div>
+		  <h1>
+		  I'm,<span class="highlight">Nordiana Nadia Binti Mohamad Sabri</span>,<br>
+		  Welcome to my personal's website!
+		  </br></h1>
+		  
+		  <p class="Description">
+		    </p>
+  
+  
+                  <div class="button-group">
+					<a href="about-me.html" class="secondary-btn">Let's Go!</a>
+			
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <div class="badge badge-designer">Student</div>
+                <div class="badge badge-uiux">UiTM Rembau<a href="https://www.google.com/maps/dir//Universiti+Teknologi+MARA,+UiTM+Cawangan+Negeri+Sembilan+Kampus,+Jalan,+Kampung+Pilin,+71300+Rembau,+Negeri+Sembilan/@2.510904,101.9805481,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31cdfd8ea33825ad:0x5aa3255f8a169f1c!2m2!1d102.0629501!2d2.5109066?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" class="location-link"><img src="pin2.png" alt="location" width="20"></a></div>
+
+			   <div class="hero-image">
+                    <img src="image3.jpg" alt="Profile photo"
+					  </div>
+                </div>
+            </div>
+	
+	
+  			<td width="40" rowspan="3"><p>&nbsp;</p></td>
+	</td>
+    </tr>
+
+	<tr>
+		<td colspan="8" height="45" align="right" 
+		<footer>
+     <p>Contact me:<br>
+     <a href="https://www.instagram.com/haa_nadd/profilecard/?igsh=MWc4YXBnaWY5YjI2eA==" target="blank"><div class="image-ig-gover"></div></a></p>
+
+		<p> &copy; 2024 Didiynco. All rights reserved.</p></td>
+		</footer>
+    </tr>
+
+	<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+
+</table>
+</body>
+</html>
